@@ -2,9 +2,11 @@ package com.jmrk.app.ShoppingCart.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.extern.apachecommons.CommonsLog;
 import org.hibernate.id.IncrementGenerator;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -16,16 +18,21 @@ public class Order {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(nullable = false)
-    private Integer quantity;
+    private LocalDateTime orderDate;
 
     @Column(nullable = false)
-    private BigDecimal tPrice;
+    private String status;
+
+    @Column(nullable = false)
+    private String trackingNumber;
+
+    @Column(nullable = false)
+    private BigDecimal totalPrice;
+
+    @OneToMany(mappedBy = "Order", cascade = CascadeType.ALL)
+    private List<OrderItem> orderItems;
 }
