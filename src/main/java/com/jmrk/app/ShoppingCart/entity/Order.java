@@ -18,8 +18,8 @@ public class Order {
     @Column(updatable = false)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false) // verify
     private User user;
 
     @Column(nullable = false)
@@ -34,6 +34,6 @@ public class Order {
     @Column(nullable = false)
     private BigDecimal totalPrice;
 
-    @OneToMany(mappedBy = "Order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "Order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> orderItems;
 }
