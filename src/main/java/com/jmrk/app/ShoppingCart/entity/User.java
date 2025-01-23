@@ -35,7 +35,7 @@ public class User {
 
     @ElementCollection(targetClass = String.class,fetch = FetchType.EAGER)
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
-    @Column(name = "role")
+    @Column(name = "role", nullable = false)
     private List<String> roles;
 
     @Column(nullable = false, columnDefinition = "boolean default true")
