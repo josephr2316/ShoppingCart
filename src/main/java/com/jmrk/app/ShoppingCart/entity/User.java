@@ -9,10 +9,11 @@ import java.util.List;
 @Data
 @Entity
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
-    private int id;
+    private Long id;
 
     @Column(nullable = false)
     private String firstname;
@@ -38,7 +39,7 @@ public class User {
     private List<String> roles;
 
     @Column(nullable = false, columnDefinition = "boolean default true")
-    private boolean isActive;
+    private Boolean isActive;
 
 }
 
