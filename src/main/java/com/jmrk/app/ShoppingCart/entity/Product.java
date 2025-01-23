@@ -34,7 +34,7 @@ public class Product {
     private List<Review> reviews;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", nullable = false) // Verify this
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)

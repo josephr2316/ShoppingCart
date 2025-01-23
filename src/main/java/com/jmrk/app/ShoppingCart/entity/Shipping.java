@@ -12,7 +12,7 @@ public class Shipping {
     @Column(updatable = false)
     private Long id;
 
-    @OneToOne // verify the fetch
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false) // verify
     private Order order;
 
