@@ -15,12 +15,19 @@ public class Payment {
     @Column(updatable = false)
     private Integer id;
 
-    @OneToOne
-    @JoinColumn(name = "order_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id", nullable = false) // verify
     private Order order;
 
+    @Column(nullable = false)
     private String paymentMethod; // Modify
+
+    @Column(nullable = false)
     private LocalDate paymentDate;
+
+    @Column(nullable = false)
     private BigDecimal amount;
+
+    @Column(nullable = false)
     private String paymentStatus; // Modify
 }
