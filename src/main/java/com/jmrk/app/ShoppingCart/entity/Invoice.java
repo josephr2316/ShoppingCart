@@ -15,8 +15,8 @@ public class Invoice {
     @Column(updatable = false)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "order_id")
+    @OneToOne // verify the fetch
+    @JoinColumn(name = "order_id", nullable = false) // verify
     private Order order;
 
     @Column(nullable = false)
