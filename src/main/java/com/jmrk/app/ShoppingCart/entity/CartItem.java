@@ -14,15 +14,18 @@ public class CartItem {
     @Column(updatable = false)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "cart_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_id", nullable = false) // verify
     private Cart cart;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", nullable = false) // verify
     private Product product;
 
+    @Column(nullable = false)
     private Integer quantity;
+
+    @Column(nullable = false)
     private BigDecimal price;
 
 }
