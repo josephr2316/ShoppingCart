@@ -19,8 +19,9 @@ public class Payment {
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
-    @Column(nullable = false)
-    private String paymentMethod; // Modify
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, name = "payment_method")
+    private PaymentMethod paymentMethod;
 
     @Column(nullable = false)
     private LocalDate paymentDate;
