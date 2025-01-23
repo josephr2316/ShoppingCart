@@ -23,6 +23,6 @@ public class Category {
     @Column(nullable = false)
     private String imageUrl;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> products;
 }

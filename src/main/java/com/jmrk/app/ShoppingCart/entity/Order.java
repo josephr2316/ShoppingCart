@@ -26,7 +26,7 @@ public class Order {
     private LocalDateTime orderDate;
 
     @Column(nullable = false)
-    private String status;
+    private String status; // enum
 
     @Column(nullable = false)
     private String trackingNumber;

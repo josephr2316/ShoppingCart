@@ -15,15 +15,15 @@ public class Invoice {
     @Column(updatable = false)
     private Long id;
 
-    @OneToOne // verify the fetch
-    @JoinColumn(name = "order_id", nullable = false) // verify
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
     @Column(nullable = false)
-    private String invoiceNumber;
+    private String invoiceNumber; // number for accountability, legal complain, and customer communication
 
     @Column(nullable = false)
-    private LocalDate invoiceDate;
+    private LocalDate invoiceDate; // issueDate
 
     @Column(nullable = false)
     private BigDecimal totalAmount;
