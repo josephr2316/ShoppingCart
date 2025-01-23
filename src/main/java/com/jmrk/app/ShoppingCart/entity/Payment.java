@@ -29,6 +29,7 @@ public class Payment {
     @Column(nullable = false)
     private BigDecimal amount;
 
-    @Column(nullable = false)
-    private String paymentStatus; // Modify
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, name = "payment_status")
+    private PaymentStatus paymentStatus; // Modify
 }

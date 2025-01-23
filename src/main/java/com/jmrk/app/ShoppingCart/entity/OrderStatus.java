@@ -16,7 +16,7 @@ public enum OrderStatus {
     REFUNDED("Refunded"),      // Payment refunded to the customer
     FAILED("Failed"),        // Order failed (e.g., payment or system issue)
     ON_HOLD("On hold"),       // Order paused for some reason
-    DISPUTED("Disputed")       // Order under dispute between buyer and seller
+    DISPUTED("Disputed");      // Order under dispute between buyer and seller
 
     private final String displayName;
 
