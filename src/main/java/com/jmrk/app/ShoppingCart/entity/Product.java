@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Entity
@@ -28,4 +29,14 @@ public class Product {
 
     @Column(nullable = false, columnDefinition = "boolean default true")
     private Boolean isActive;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Review> reviews;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    @Column(nullable = false)
+    private Double averageRating;
 }
