@@ -25,8 +25,9 @@ public class Order {
     @Column(nullable = false)
     private LocalDateTime orderDate;
 
-    @Column(nullable = false)
-    private String status; // enum
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, name = "order_status")
+    private OrderStatus status; // enum
 
     @Column(nullable = false)
     private String trackingNumber;
